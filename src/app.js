@@ -10,7 +10,6 @@ export async function Init() {
 }
 
 async function imageOnClick(e) {
-    console.log(e);
     const image = await getRandomImages(1);
     e.target.src = image;
 }
