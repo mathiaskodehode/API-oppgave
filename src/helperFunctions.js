@@ -12,6 +12,10 @@ export function CreateElement(tag, parent = null, options = {}) {
     return element;
 }
 
-export function Clamp(value, min, max) {
-    return Math.max(min, Math.min(max, value));
+export function Clamp(num, min, max) {
+    return Math.max(min, Math.min(max, num));
+}
+
+export function RandomRange(min, max) {
+    return Math.floor(Math.random() * max) + min;
 }
