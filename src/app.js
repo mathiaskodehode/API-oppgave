@@ -1,5 +1,5 @@
 import "./extensionMethods.js";
-import { CreateElement, RandomRange } from "./helperFunctions.js";
+import { Clamp, CreateElement, RandomRange } from "./helperFunctions.js";
 
 export async function Init() {
     CreateElement("h1", { innerText: "Click on an image to change it" });
@@ -16,8 +16,9 @@ async function imageOnClick(e) {
 }
 
 async function getRandomImages(amount) {
-    const response = await fetch(`https://picsum.photos/v2/list?page=${RandomRange(1, 100)}&limit=${amount}`);
+    amount = Clamp(amount, 1, 100);
+    const page = RandomRange(1, Math.floor(100 / amount));
+    const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=${amount}`);
     const data = await response.json();
-    const arr = data.map(e => e.download_url);
-    return arr;
+    return data.map(e => e.download_url);
 }
