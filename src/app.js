@@ -2,6 +2,7 @@ import "./extensionMethods.js";
 import { CreateElement, RandomRange } from "./helperFunctions.js";
 
 export async function Init() {
+    CreateElement("h1", { innerText: "Click on an image to change it" });
     const data = await getRandomImages(10);
     data.forEach(e => {
         CreateElement("img", { src: e, width: 300, height: 200, onclick: imageOnClick });
