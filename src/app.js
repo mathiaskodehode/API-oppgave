@@ -4,7 +4,7 @@ import { CreateElement, RandomRange } from "./helperFunctions.js";
 export async function Init() {
     const data = await getRandomImages(10);
     data.forEach(e => {
-        CreateElement("img", null, { src: e, width: 300, height: 200, onclick: imageOnClick });
+        CreateElement("img", { src: e, width: 300, height: 200, onclick: imageOnClick });
     });
 }
 
