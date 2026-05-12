@@ -17,5 +17,5 @@ export function Clamp(num, min, max) {
 }
 
 export function RandomRange(min, max) {
-    return Math.floor(Math.random() * max) + min;
+    return Math.floor(Math.random() * max + min);
 }
